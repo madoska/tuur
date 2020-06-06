@@ -7,10 +7,14 @@ body {
   font-family: Source Sans Pro;
 }
 
+b {
+  color: #F69285;
+}
+
 /* NAVIGATION */
 .nav-container {
   background: #ffffff;
-  height: 159px;
+  height: 85px;
 }
 
 .wrapper {
@@ -32,6 +36,7 @@ nav ul {
 
 .logo-img {
   width: 70%;
+  margin-top: 5px;
 }
 
 .nav-items li {
@@ -55,4 +60,60 @@ nav ul {
 .nav-items a {
   text-decoration: none;
   color: black;
+}
+
+/* HERO */
+.hero-img {
+  background-image: url('/images/hero.png');
+  height: 50%;
+  background-position: center;
+  backgrund-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-logo {
+  width: 30%;
+  padding-top: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-txt {
+  color: white;
+  font-family: Source Serif Pro;
+  text-align: center;
+  font-size: 1.5em;
+  padding-bottom: 15%;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.tuur-txt {
+  padding-left: 3em;
+  padding-right: 5em;
+  text-align: justify;
+}
+
+.video {
+  padding-left: 5em;
+}
+
+.line-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 10%;
+}
+
+.tuur-special {
+  font-style: italic;
+  margin-left: 5%;
 }
