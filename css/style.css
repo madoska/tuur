@@ -5,6 +5,7 @@
 
 body {
   font-family: Source Sans Pro;
+  font-size: 1em;
 }
 
 b {
@@ -87,6 +88,7 @@ nav ul {
   padding-bottom: 15%;
 }
 
+/* TUUR */
 .video-container {
   display: flex;
   flex-direction: row;
@@ -116,4 +118,57 @@ nav ul {
 .tuur-special {
   font-style: italic;
   margin-left: 5%;
+}
+
+/* NEWSLETTER */
+.cat-blue {
+  text-align: right;
+  padding-right: 10%;
+  font-size: 0;
+  margin-bottom: -2px;
+}
+
+.newsletter-container {
+  background-color: #384D78;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  color: white;
+}
+
+.newsletter-title {
+  font-weight: bold;
+  font-size: 175%;
+  text-align: center;
+}
+
+.newsletter-sub {
+  font-size: 115%;
+  padding-top: 11px;
+  text-align: center;
+}
+
+#email {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#submit {
+  width: 8%;
+  background-color: #E46A77;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 15px;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+}
+
+.form {
+  text-align: center;
+  padding-top: 20px;
 }
