@@ -331,7 +331,36 @@ nav ul {
   align-items: center;
 }
 
+.mail-title {
+  font-weight: bold;
+  font-size: 175%;
+  text-align: center;
+}
+
+.mail-sub {
+  font-size: 115%;
+  padding-top: 11px;
+  text-align: center;
+}
+
+.mail-success {
+  font-size: 115%;
+  padding-top: 11px;
+  text-align: center;
+  display: none;
+}
+
 #contact-email {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#contact-txt {
   width: 40%;
   padding: 12px 20px;
   margin: 8px 0;

@@ -200,14 +200,15 @@
     </div>
 
     <div class="contact-container" id="contact">
-      <p class="newsletter-title">Geen antwoord gevonden op uw vraag?</p>
-      <p class="newsletter-sub">
+      <p class="mail-title">Geen antwoord gevonden op uw vraag?</p>
+      <p class="mail-sub">
         Aarzel niet om contact op te nemen met ons.
       </p>
+      <p class="mail-success">Wij hebben uw vraag goed ontvangen.</p>
       <div class="form">
         <form action="" method="post" class="contact-form">
           <input type="text" name="email" id="contact-email" placeholder="email" />
-            <textarea name="contact" id="contact-email" placeholder="Uw vraag hier..." cols="100" rows="10"></textarea>
+            <textarea name="contact" id="contact-txt" placeholder="Uw vraag hier..." cols="100" rows="10"></textarea>
           <input type="verzend" id="verzend" value="Verzend" />
         </form>
       </div>
@@ -278,6 +279,38 @@
                         document.querySelector('.newsletter-sub').style.display="none";
                         document.querySelector('.newsletter-success').style.display="block";
                         document.querySelector('#newsletter').style.display="none";
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+
+        Array.from(document.querySelectorAll("#verzend")).forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                let email = e.target.parentNode.querySelector('#contact-email').value;
+                let message = e.target.parentNode.querySelector('#contact-txt').value;
+
+                console.info(email, message);
+
+                const formData = new FormData();
+
+                formData.append('email', email);
+                formData.append('message', message);
+
+                fetch('sendmail.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        document.querySelector('#contact-email').style.display="none";
+                        document.querySelector('.mail-success').style.display="block";
+                        document.querySelector('#contact-txt').style.display="none";
+                        document.querySelector('#verzend').style.display="none";
+                        document.querySelector('.mail-sub').style.display="none";
                     })
                     .catch(error => {
                         console.error('Error:', error);
