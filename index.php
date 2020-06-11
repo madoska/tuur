@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css\style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -20,7 +20,7 @@
         <nav>
           <div class="logo">
             <a href="#"
-              ><img class="logo-img" src="/images/logo-small.svg" alt="logo"
+              ><img class="logo-img" src="images\logo-small.svg" alt="logo"
             /></a>
           </div>
 
@@ -45,7 +45,7 @@
 
     <div class="hero">
       <div class="hero-img">
-        <div><img class="hero-logo" src="/images/logo-big.png" alt="" /></div>
+        <div><img class="hero-logo" src="images\logo-big.png" alt="" /></div>
         <div class="hero-txt"><p>Een tedere vriend.</p></div>
       </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="video-container" id="tuur">
       <div class="video">
         <video width="640" height="360" controls autoplay muted>
-          <source src="/images/Tuur_promo.mp4" type="video/mp4" />
+          <source src="images\Tuur_promo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -69,13 +69,13 @@
 
           Met Tuur willen wij zowel eenzame ouderen als de mensen die voor hen zorgen een oplossing bieden.
         </p>
-        <div class="line-container"><div class="tuur-line"><img src="/images/line-horizontal.svg" alt=""></div>
+        <div class="line-container"><div class="tuur-line"><img src="images\line-horizontal.svg" alt=""></div>
         <p class="tuur-special">"Tuur is er voor jou."</p></div>
       </div>
     </div>
 
       <div class="cat-blue">
-        <img class="cat-blue-img" src="/images/cat-blue.svg" />
+        <img class="cat-blue-img" src="images\cat-blue.svg" />
       </div>
       
     <div class="newsletter-container">
@@ -83,7 +83,8 @@
       <p class="newsletter-sub">
         Ontvang mails met informatie, updates en meer.
       </p>
-      <div class="form">
+      <p class="newsletter-success">Succesvol ingeschreven!</p>
+      <div class="form" id="newsletter">
         <form action="" method="post">
           <input type="text" name="email" id="email" placeholder="email" />
           <input type="submit" id="submit" value="Schrijf je in" />
@@ -93,15 +94,15 @@
 
     <div class="product-box" id="product">
       <div class="product">
-        <img class="box-img" src="/images/tuur-fur.png" alt="" />
+        <img class="box-img" src="images\tuur-fur.png" alt="" />
         <p class="box-txt">Aai zijn zachte vacht <br>en praat tegen Tuur.</p>
       </div>
       <div class="product">
-        <img src="/images/tuur-tail.png" alt="" class="box-img" />
+        <img src="images\tuur-tail.png" alt="" class="box-img" />
         <p class="box-txt">Zijn staart beweegt <br>wanneer je hem streelt.</p>
       </div>
       <div class="product">
-        <img src="/images/tuur-connectedpatient.png" alt="" class="box-img" />
+        <img src="images\tuur-connectedpatient.png" alt="" class="box-img" />
         <p class="box-txt">Tuur meet je vitale data <br>en visualiseert ze.</p>
       </div>
     </div>
@@ -195,10 +196,10 @@
     </div>
 
     <div class="cat-pink">
-      <img class="cat-pink-img" src="/images/cat-pink.png" />
+      <img class="cat-pink-img" src="images\cat-pink.png" />
     </div>
 
-    <div class="contact-container">
+    <div class="contact-container" id="contact">
       <p class="newsletter-title">Geen antwoord gevonden op uw vraag?</p>
       <p class="newsletter-sub">
         Aarzel niet om contact op te nemen met ons.
@@ -214,7 +215,7 @@
 
     <div class="info">
       <div class="logo-black">
-        <img src="/images/logo-black.png" alt="" class="logo-info">
+        <img src="images\logo-black.png" alt="" class="logo-info">
       </div>
 
       <div class="items">
@@ -251,8 +252,38 @@
     </div>
 
     <footer>
-      <img src="/images/line-horizontal.png" alt="" class="footer">
+      <img src="images\line-horizontal.png" alt="" class="footer">
       <p class="cr">© Annelies Deroy, Medina Dadurgova — 2020</p>
     </footer>
+
+    <script>
+        Array.from(document.querySelectorAll("#submit")).forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                let email = e.target.parentNode.querySelector('#email').value;
+
+                console.info(email);
+
+                const formData = new FormData();
+
+                formData.append('email', email);
+
+                fetch('savemail.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        document.querySelector('.newsletter-sub').style.display="none";
+                        document.querySelector('.newsletter-success').style.display="block";
+                        document.querySelector('#newsletter').style.display="none";
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    </script>
   </body>
 </html>

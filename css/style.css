@@ -69,7 +69,7 @@ nav ul {
 
 /* HERO */
 .hero-img {
-  background-image: url("/images/hero.png");
+  background-image: url("../images/hero.png");
   height: 50%;
   background-position: center;
   backgrund-repeat: no-repeat;
@@ -149,6 +149,13 @@ nav ul {
   font-size: 115%;
   padding-top: 11px;
   text-align: center;
+}
+
+.newsletter-success {
+  font-size: 115%;
+  padding-top: 11px;
+  text-align: center;
+  display: none;
 }
 
 #email {
